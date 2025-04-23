@@ -3,15 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { Text } from '@chakra-ui/react'
+import CurrencyConverter from './components/CurrencyConverter'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <Text>
-        this app works
-      </Text>
+      <CurrencyConverter/>
     </>
   )
 }
