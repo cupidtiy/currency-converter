@@ -1,13 +1,16 @@
-import { Text } from '@chakra-ui/react'
-import { useState } from 'react'
+import { Box, Text, VStack } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
 import CurrencyInput from './CurrencyInput'
 import CurrencySelector from './CurrencySelector'
+import CurrencyResult from './CurrencyResult'
 
 const CurrencyConverter = () => {
     //state management
     const [amount, setAmount] = useState<number>(1);
     const [fromCurrency, setFromCurrency] = useState<string>('USD');
     const [toCurrency, setToCurrency] = useState<string>('EUR');
+    const [convertedAmount, setConvertedAmount] = useState<number>(0);
+
 
 
     //event handlers
@@ -23,7 +26,7 @@ const CurrencyConverter = () => {
     const handleToCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setToCurrency(e.target.value);
     }
-    const handleSwapCurrencies = () =>{
+    const handleSwapCurrencies = () => {
         setFromCurrency(toCurrency);
         setToCurrency(fromCurrency);
     }
@@ -32,17 +35,29 @@ const CurrencyConverter = () => {
 
     return (
         <>
-            <CurrencyInput
-                amount={amount}
-                onChange={handleAmountChange} />
-            <CurrencySelector
-                fromCurrency={fromCurrency}
-                toCurrency={toCurrency}
-                onFromCurrencyChange={handleFromCurrencyChange}
-                onToCurrencyChange={handleToCurrencyChange} 
-                onSwapCurrencies={handleSwapCurrencies}/>
-            <Text> currency result </Text>
+            <Box
+            borderRadius={'lg'}>
 
+
+                <VStack spacing={6} align="stretch">
+
+                    <CurrencyInput
+                        amount={amount}
+                        onChange={handleAmountChange} />
+                    <CurrencySelector
+                        fromCurrency={fromCurrency}
+                        toCurrency={toCurrency}
+                        onFromCurrencyChange={handleFromCurrencyChange}
+                        onToCurrencyChange={handleToCurrencyChange}
+                        onSwapCurrencies={handleSwapCurrencies} />
+                    <CurrencyResult
+                        inputAmount={amount}
+                        convertedAmount={convertedAmount}
+                        fromCurrency={fromCurrency}
+                        toCurrency={toCurrency}
+                    />
+                </VStack>
+            </Box>
         </>
 
     )
