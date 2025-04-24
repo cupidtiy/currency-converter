@@ -1,8 +1,4 @@
-interface Currency {
-    code: string;
-    name: string;
-    symbol?: string;
-  }
+import Currency from "../entities/Currency";
   
 export const currencies: Currency[] = [
     { code: 'AED', name: 'UAE Dirham United Arab', symbol: 'د.إ' },
