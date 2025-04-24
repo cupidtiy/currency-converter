@@ -24,6 +24,10 @@ const CurrencyConverter = () => {
     const handleToCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setToCurrency(e.target.value);
     }
+    const handleSwapCurrencies = () =>{
+        setFromCurrency(toCurrency);
+        setToCurrency(fromCurrency);
+    }
 
 
 
@@ -36,7 +40,8 @@ const CurrencyConverter = () => {
                 fromCurrency={fromCurrency}
                 toCurrency={toCurrency}
                 onFromCurrencyChange={handleFromCurrencyChange}
-                onToCurrencyChange={handleToCurrencyChange} />
+                onToCurrencyChange={handleToCurrencyChange} 
+                onSwapCurrencies={handleSwapCurrencies}/>
             <Text>  {currencies.map(currency => currency.code).join(', ')} </Text>
             <Text> currency result </Text>
 
