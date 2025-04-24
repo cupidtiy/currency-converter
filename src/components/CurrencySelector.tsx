@@ -46,6 +46,7 @@ const CurrencySelector = ({ fromCurrency, toCurrency, onFromCurrencyChange, onTo
             border="1px solid"
             borderColor="gray.300"
             boxShadow="md"
+            isRound
           />
       
           <FormControl>

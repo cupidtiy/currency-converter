@@ -1,5 +1,7 @@
 import { extendTheme } from '@chakra-ui/react'
 
+import starBimFont from './assets/fonts/Starbim.otf';
+
 const theme = extendTheme({
   colors: {
     brand: {
@@ -16,13 +18,20 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: 'Inter, system-ui, Chewy-Bubble',
+    heading: 'Starbim,Inter, system-ui',
     body: 'Inter, system-ui, sans-serif',
   },
   styles: {
     global: {
+        '@font-face': {
+        fontFamily: 'Starbim',
+        src: `url(${starBimFont}) format('opentype')`,
+        fontWeight: 'normal',
+        fontStyle: 'normal',
+        
+      },
       body: {
-        bg: 'brand.900',
+        bg: 'brand.800',
         color: 'gray.800', // <-- makes all text readable
       },
     },
@@ -31,14 +40,14 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         fontWeight: 'semibold',
-        borderRadius: 'md',
+        borderRadius: 'xs',
       },
       variants: {
         solid: {
-          bg: 'brand.500',
+          bg: 'brand.600',
           color: 'white',
           _hover: {
-            bg: 'brand.600',
+            bg: 'brand.800',
           },
         },
       },

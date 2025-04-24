@@ -1,18 +1,27 @@
+/* Remove max-width constraint and adjust root styling */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   text-align: center;
+  background-color: #c17a8e; /* Pink background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@font-face {
-  font-family: 'Chewy-Bubble';
-  src: url('./assets/fonts/Chewy-Bubble.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+/* Add container for your converter card */
+.converter-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  width: 80%;
+  max-width: 800px;
 }
 
-
+/* Keep your existing styles */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -47,4 +56,11 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Add styles for body to ensure no margins */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
