@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, Input, InputGroup } from '@chakra-ui/react';
+import { Box, FormControl, FormLabel, Input, InputGroup } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 
 interface Props {
@@ -57,6 +57,12 @@ const CurrencyInput = ({ amount, onChange }: Props) => {
     return (
         <FormControl>
             <FormLabel htmlFor="amount">Amount</FormLabel>
+            <Box
+            boxShadow="md"
+            border="1px solid"
+            borderColor="gray.300"
+            borderRadius="md"
+            bg="white">
             <InputGroup>
                 <Input
                      id="amount"
@@ -69,6 +75,7 @@ const CurrencyInput = ({ amount, onChange }: Props) => {
                      inputMode="decimal"
                  />
             </InputGroup>
+            </Box>
         </FormControl>
     );
 };
