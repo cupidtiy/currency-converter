@@ -22,7 +22,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'gray.50',
+        bg: 'brand.900',
         color: 'gray.800', // <-- makes all text readable
       },
     },

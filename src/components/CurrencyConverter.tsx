@@ -1,7 +1,6 @@
 import { Text } from '@chakra-ui/react'
 import { useState } from 'react'
 import CurrencyInput from './CurrencyInput'
-import currencies from '../data/currencies'
 import CurrencySelector from './CurrencySelector'
 
 const CurrencyConverter = () => {
@@ -42,7 +41,6 @@ const CurrencyConverter = () => {
                 onFromCurrencyChange={handleFromCurrencyChange}
                 onToCurrencyChange={handleToCurrencyChange} 
                 onSwapCurrencies={handleSwapCurrencies}/>
-            <Text>  {currencies.map(currency => currency.code).join(', ')} </Text>
             <Text> currency result </Text>
 
         </>
