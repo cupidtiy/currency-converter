@@ -17,54 +17,57 @@ const CurrencySelector = ({ fromCurrency, toCurrency, onFromCurrencyChange, onTo
 
 
     return (
-        <Flex
-            direction={{ base: 'column', md: 'row' }} gap={4} align='center'>
-            <FormControl>
-                <FormLabel htmlFor="fromCurrency"></FormLabel>
-                <Select
-                    id='fromCurrency'
-                    value={fromCurrency}
-                    onChange={onFromCurrencyChange}>
-
-                    {currencies.map((currency) => (
-                        <option
-                            key={currency.code}
-                            value={currency.code}>
-                            {currency.code}-{currency.name}
-                        </option>))}
-                </Select>
-            </FormControl> 
-            
-            <IconButton
-                aria-label='swap currencies'
-                icon = {<FaExchangeAlt/>}
-                alignSelf={{base:'center', md: 'flex-end'}}
-                mb={{base: 0, md: '8px'}}
-                size="md"
-                onClick={onSwapCurrencies}
-
-
-            />
-            
-            <FormControl>
-                <FormLabel htmlFor="toCurrency"></FormLabel>
-                <Select
-                    id='toCurrency'
-                    value={toCurrency}
-                    onChange={onToCurrencyChange}>
-
-                    {currencies.map((currency) => (
-                        <option
-                            key={currency.code}
-                            value={currency.code}>
-                            {currency.code}-{currency.name}
-                        </option>))}
-                </Select>
-            </FormControl>
-
-
-        </Flex >
-    )
+        <Flex direction={{ base: 'column', md: 'row' }} gap={4} align="center">
+          <FormControl>
+            <FormLabel htmlFor="fromCurrency"></FormLabel>
+            <Select
+              id="fromCurrency"
+              value={fromCurrency}
+              onChange={onFromCurrencyChange}
+              border="1px solid"
+              borderColor="gray.300"
+              boxShadow="md"
+            >
+              {currencies.map((currency) => (
+                <option key={currency.code} value={currency.code}>
+                  {currency.code} - {currency.name}
+                </option>
+              ))}
+            </Select>
+          </FormControl>
+      
+          <IconButton
+            aria-label="swap currencies"
+            icon={<FaExchangeAlt />}
+            alignSelf={{ base: 'center', md: 'flex-end' }}
+            mb={{ base: 0, md: '' }}
+            size="md"
+            onClick={onSwapCurrencies}
+            border="1px solid"
+            borderColor="gray.300"
+            boxShadow="md"
+          />
+      
+          <FormControl>
+            <FormLabel htmlFor="toCurrency"></FormLabel>
+            <Select
+              id="toCurrency"
+              value={toCurrency}
+              onChange={onToCurrencyChange}
+              border="1px solid"
+              borderColor="gray.300"
+              boxShadow="md"
+            >
+              {currencies.map((currency) => (
+                <option key={currency.code} value={currency.code}>
+                  {currency.code} - {currency.name}
+                </option>
+              ))}
+            </Select>
+          </FormControl>
+        </Flex>
+      );
+      
 }
 
 export default CurrencySelector
