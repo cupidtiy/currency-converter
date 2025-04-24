@@ -1,5 +1,5 @@
 import { FormControl, FormLabel, Input, InputGroup } from '@chakra-ui/react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 interface Props {
     amount: number;
