@@ -1,4 +1,4 @@
-import { Box, Text, VStack } from '@chakra-ui/react'
+import { Box, VStack } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import CurrencyInput from './CurrencyInput'
 import CurrencySelector from './CurrencySelector'
@@ -12,10 +12,10 @@ const CurrencyConverter = () => {
     const [toCurrency, setToCurrency] = useState<string>('EUR');
     const [convertedAmount, setConvertedAmount] = useState<number>(0);
 
-    const { error, convert } = useCurrency('USD');
+    const { error, convert, loading } = useCurrency('USD');
 
     useEffect(() => {
-        if (!error) {
+        if (!error && !loading) {
             const result = convert(amount, fromCurrency, toCurrency);
             setConvertedAmount(result);
         }
@@ -63,6 +63,7 @@ const CurrencyConverter = () => {
                         convertedAmount={convertedAmount}
                         fromCurrency={fromCurrency}
                         toCurrency={toCurrency}
+                        loading = {loading}
                     />
                 </VStack>
             </Box>

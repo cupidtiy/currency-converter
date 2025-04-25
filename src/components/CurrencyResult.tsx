@@ -1,4 +1,4 @@
-import { Box, Flex, Stat, StatLabel, StatNumber, Text } from '@chakra-ui/react';
+import { Box, Flex, Spinner, Stat, StatLabel, StatNumber, Text } from '@chakra-ui/react';
 
 
 interface Props {
@@ -6,9 +6,10 @@ interface Props {
     convertedAmount: number;
     fromCurrency: string;
     toCurrency: string;
+    loading: boolean;
 }
 
-const CurrencyResult = ({ inputAmount, convertedAmount, fromCurrency, toCurrency }: Props) => {
+const CurrencyResult = ({ inputAmount, convertedAmount, fromCurrency, toCurrency, loading }: Props) => {
     return (
         <Box
             mt={4}
@@ -18,14 +19,21 @@ const CurrencyResult = ({ inputAmount, convertedAmount, fromCurrency, toCurrency
             boxShadow={"md"}
             p={4}
         >
-            <Stat>
-                <StatLabel fontSize={"md"} textAlign={"left"}> Conversion result</StatLabel>
-                <Flex alignItems="baseline" mt={2}>
-                    <Text mr={2} fontSize={"l"}> {inputAmount} {fromCurrency} = </Text>
-                    <StatNumber> {convertedAmount.toFixed(2)} {toCurrency}</StatNumber>
+            {loading ? (
+                <Flex>
+                    <Spinner size="xl" ></Spinner>
                 </Flex>
-            </Stat>
-        </Box>
+            ) : (
+                <Stat>
+                    <StatLabel fontSize={"md"} textAlign={"left"}> Conversion result</StatLabel>
+                    <Flex alignItems="baseline" mt={2}>
+                        <Text mr={2} fontSize={"l"}> {inputAmount} {fromCurrency} = </Text>
+                        <StatNumber> {convertedAmount.toFixed(2)} {toCurrency}</StatNumber>
+                    </Flex>
+                </Stat>)
+
+            }
+        </Box >
     );
 }
 
