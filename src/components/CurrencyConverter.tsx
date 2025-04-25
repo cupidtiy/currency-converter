@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import CurrencyInput from './CurrencyInput'
 import CurrencySelector from './CurrencySelector'
 import CurrencyResult from './CurrencyResult'
+import useCurrency from '../hooks/useCurrency'
 
 const CurrencyConverter = () => {
     //state management
@@ -11,7 +12,14 @@ const CurrencyConverter = () => {
     const [toCurrency, setToCurrency] = useState<string>('EUR');
     const [convertedAmount, setConvertedAmount] = useState<number>(0);
 
+    const { error, convert } = useCurrency('USD');
 
+    useEffect(() => {
+        if (!error) {
+            const result = convert(amount, fromCurrency, toCurrency);
+            setConvertedAmount(result);
+        }
+    }, [amount, fromCurrency, toCurrency, convert, error]);
 
     //event handlers
     const handleAmountChange = (valueAsString: string, _valueAsNumber: number) => {
@@ -36,7 +44,7 @@ const CurrencyConverter = () => {
     return (
         <>
             <Box
-            borderRadius={'lg'}>
+                borderRadius={'lg'}>
 
 
                 <VStack spacing={6} align="stretch">
