@@ -4,6 +4,7 @@ import CurrencyInput from './CurrencyInput'
 import CurrencySelector from './CurrencySelector'
 import CurrencyResult from './CurrencyResult'
 import useCurrency from '../hooks/useCurrency'
+import { getSymbol } from '../utils/getSymbol'
 
 const CurrencyConverter = () => {
     //state management
@@ -64,6 +65,7 @@ const CurrencyConverter = () => {
                         fromCurrency={fromCurrency}
                         toCurrency={toCurrency}
                         loading = {loading}
+                        getSymbol = {getSymbol}
                     />
                 </VStack>
             </Box>
